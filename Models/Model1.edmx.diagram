@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e57a24fd6caf49918f43126f87ee245f" Name="Diagram1" ZoomLevel="150">
+        <EntityTypeShape EntityType="Database1Model.InstrumentDetail" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.User" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Order" Width="1.5" PointX="5.25" PointY="0.875" />
+        <AssociationConnector Association="Database1Model.FK_Order_ToTable" />
+        <EntityTypeShape EntityType="Database1Model.Category" Width="1.5" PointX="2.75" PointY="3.5" />
+        <AssociationConnector Association="Database1Model.FK_InstrumentDetails_ToTable" />
+        <EntityTypeShape EntityType="Database1Model.ImagesList" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="Database1Model.FK_Table_ToTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
