@@ -2,9 +2,14 @@
 @using MvcApplication1.Models
 
 @{
+    List<Category>list=new List<Category>();
+    try { 
     Database1Entities2 de = new Database1Entities2();
-    List<Category> list = de.Categories.ToList();
-   
+    list = de.Categories.ToList();
+    }catch(Exception a)
+    {
+        list = null;
+    }
 }
 
 <!DOCTYPE html>
@@ -63,6 +68,8 @@
                         <li>
                             <a style="font-size:medium">Categories</a>
                             <ul>
+                                
+                                
                                 @foreach(var i in list)
                                 { 
                                 <li><a href="@Url.Action("Surgical", "Home", new { Type=@i.CategoryName})">@i.CategoryName</a></li>
