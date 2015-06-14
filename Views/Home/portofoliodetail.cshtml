@@ -1,0 +1,202 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@using MvcApplication1.Models
+
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    <title>MHR 19 Technologies</title>
+    <!-- CSS Files-->
+    <script src="~/Content/lib/jquery-1.10.1.min.js"></script>
+    <script src="~/Content/lib/jquery-1.9.0.min.js"></script>
+    <script src="~/Content/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-media.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-buttons.js"></script>
+    <link href="~/Content/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <link href="~/Content/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <script src="~/Content/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/source/jquery.fancybox.js"></script>
+    <link href="~/Content/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/Content/skins/blue.css" rel="stylesheet" />
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+</head>
+<body>
+    <!-- HIDDEN PANEL
+    ================================================== -->
+    
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $(".fancybox");
+    });
+
+        </script>
+    <div class="row">
+        <div class="twelve columns">
+            <ul class="ca-menu">
+                <li>
+                    <a href="@Url.Action("Surgical", "Home", new { Type="Surgical"})">
+
+                        <div class="ca-content">
+                            <h2 class="ca-main">Surgical<br />Instruments</h2>
+
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Surgical", "Home", new { Type="Dental"})">
+
+                        <div class="ca-content">
+                            <h2 class="ca-main">Dental<br />Instruments</h2>
+
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Surgical", "Home", new { Type="Beauty"})">
+
+                        <div class="ca-content">
+                            <h2 class="ca-main">Beauty<br />Instruments</h2>
+
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Surgical", "Home", new { Type="Veterinary"})">
+
+                        <div class="ca-content">
+                            <h2 class="ca-main">Veterinary<br />Instruments</h2>
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- SUBHEADER
+    ================================================== -->
+    <div id="subheader">
+        <div class="row">
+            <div class="twelve columns">
+                <p class="left">
+                    INSTRUMENT DETAILS
+                </p>
+
+
+            @if(Session["User"]!=null)
+            {
+                User user=(User)Session["User"];
+            <p class="right">
+                <a href="@Url.Action("MyCart", "Home", new { Name=@Model.Name, UserId=@user.Id})">Add to Cart</a>
+            </p>
+            }
+        </div>
+    </div>
+        </div>
+    <div class="hr">
+    </div>
+    <!-- CONTENT
+    ================================================== -->
+    <div class="row">
+        <!-- PROJECT DESCRIPTION-->
+        <div class="six columns">
+            <div class="sectiontitle">
+                <h4>@Model.Name</h4>
+            </div>
+            <p style="font-size:medium">
+                @Model.Description
+            </p>
+            <dl class="tabs">
+                <dd class="active"><a href="#simple1">Features</a></dd>
+                <dd><a href="#simple2">Price</a></dd>
+                <dd><a href="#simple3">Minimum Quantity</a></dd>
+            </dl>
+            <ul class="tabs-content">
+                <li class="active" id="simple1Tab">
+                    <p style="font-size:medium">
+                        @Model.Description
+                    </p>
+
+                </li>
+                <li id="simple2Tab">
+                    <p style="font-size:medium">
+                        @Model.Price
+                    </p>
+                    <!--<p>
+                        <img src="images/check.png" alt=""> genera formasque
+                    </p>
+                    <p>
+                        <img src="images/check.png" alt=""> quibus ad genera
+                    </p>
+                    <p>
+                        Et non ex maxima parte de tota iudicabis? Item de contrariis, a quibus ad genera formasque generum venerunt. Sit enim idem caecus, debilis. Duo Reges: constructio interrete.
+                    </p>-->
+                </li>
+                <li id="simple3Tab">
+                    <p style="font-size:medium">
+                        @Model.MinimumQuantity
+                    </p>
+                    <!--<p>
+                        <i>"Adipiscing elit. Et non ex maxima parte de tota iudicabis? Item de contrariis, a quibus ad genera formasque generum."</i>
+                    </p>-->
+                </li>
+            </ul>
+        </div>
+        <!-- end main content-->
+        <!-- SLIDER-->
+        <div class="six columns">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider detailslider">
+                    @for (int i = 0; i < ViewBag.ImageList.Count;i++ )
+                    {
+                    <img class="fancybox" src="~/images/@ViewBag.ImageList[i].Image" data-thumb="" alt="" />
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- end sliderr-->
+    </div>
+    <div class="hr">
+    </div>
+
+    <!-- FOOOTER
+    ================================================== -->
+
+    <!-- JAVASCRIPTS
+    ================================================== -->
+    <!-- Javascript files placed here for faster loading -->
+<script src="~/Scripts/foundation.min.js"></script>
+
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.tweet.js"></script>
+    <script src="~/Scripts/elasticslideshow.js"></script>
+    <script src="~/Scripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+    <script src="~/Scripts/jquery.cycle.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/modernizr.foundation.js"></script>
+    <script src="~/Scripts/slidepanel.js"></script>
+    <script src="~/Scripts/scrolltotop.js"></script>
+    <script src="~/Scripts/hoverIntent.js"></script>
+    <script src="~/Scripts/superfish.js"></script>
+    <script src="~/Scripts/responsivemenu.js"></script>
+</body>
+</html>
